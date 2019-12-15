@@ -2,10 +2,14 @@
 const BugetsService = require('../../../../services/js/budgets-api')
 
 const createBudget = async (_, { input }) => {
-  const { budgetId, budgetLimit } = input
-  console.log(`[Budget][createBudget][Request] id = ${JSON.stringify(id)}`)
+  const { budgetId, budgetLimit, budgetName } = input
+  console.log(
+    `[Budget][createBudget][Request] budgetId = ${JSON.stringify(budgetId)}, budgetLimit = ${JSON.stringify(
+      budgetLimit,
+    )}, budgetName = ${JSON.stringify(budgetName)}`,
+  )
   try {
-    const payload = await BugetsService.createBudget(budgetId, budgetLimit)
+    const payload = await BugetsService.createBudget(budgetId, budgetLimit, budgetName)
     console.log(`[Budget][createBudget][Response] payload = ${JSON.stringify(payload)}`)
     return payload
   } catch (error) {

@@ -3,7 +3,7 @@ const BugetsService = require('../../../../services/js/budgets-api')
 
 const deleteItem = async (_, { input }) => {
   const { budgetId, item } = input
-  console.log(`[Budget][deleteItem][Request] id = ${JSON.stringify(id)}`)
+  console.log(`[Budget][deleteItem][Request] budgetId = ${JSON.stringify(budgetId)}, item = ${JSON.stringify(item)}`)
   try {
     const payload = await BugetsService.deleteItem(budgetId, item)
     console.log(`[Budget][deleteItem][Response] payload = ${JSON.stringify(payload)}`)

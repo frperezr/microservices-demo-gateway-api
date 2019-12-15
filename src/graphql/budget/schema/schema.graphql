@@ -59,6 +59,9 @@ input CreateBudgetInput {
 
   "The budget limit"
   budgetLimit: Int
+
+  "The budget name"
+  budgetName: String
 }
 
 "Payload of create budget method"

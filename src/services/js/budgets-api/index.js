@@ -39,9 +39,9 @@ class BudgetService {
     })
   }
 
-  createBudget(userId, budgetLimit) {
+  createBudget(userId, budgetLimit, budgetName) {
     return new Promise((resolve, reject) => {
-      this.client.createBudget({ userId, budgetLimit }, (err, data) => {
+      this.client.createBudget({ userId, budgetLimit, budgetName }, (err, data) => {
         err ? reject(err) : resolve(data)
       })
     })
