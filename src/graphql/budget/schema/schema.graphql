@@ -1,0 +1,141 @@
+"Represents the budget model"
+type Budget {
+  "The budget id"
+  id: ID!
+
+  "The budget name"
+  name: String
+
+  "The user id"
+  userId: String
+
+  "The budget limit"
+  budgetLimit: Int
+
+  "The budget amount spent"
+  spent: Int
+
+  "The budget amount remaining"
+  remaining: Int
+
+  "Date time when the budget was created"
+  createdAt: String
+
+  "Date time when the budget was last updated"
+  updatedAt: String
+
+  "The budget items"
+  items: [BudgetItem]
+}
+
+"Represents the budget item model"
+type BudgetItem {
+  "The item id"
+  id: ID!
+
+  "The item city"
+  city: String
+
+  "The item traveling cost"
+  travelingCost: Int
+
+  "The item staying cost"
+  stayingCost: Int
+}
+
+"Payload of get budget method"
+type GetBudgetPayload {
+  "The response data"
+  data: Budget
+
+  "The response error"
+  error: Error
+}
+
+"Input of create budget method"
+input CreateBudgetInput {
+  "The user ID"
+  userId: ID
+
+  "The budget limit"
+  budgetLimit: Int
+}
+
+"Payload of create budget method"
+type CreateBudgetPayload {
+  "The response data"
+  data: Budget
+
+  "The response error"
+  error: Error
+}
+
+"Input of add item method"
+input AddItemInput {
+  "The budget id"
+  budgetId: ID
+
+  "The budget item"
+  item: BudgetItem
+}
+
+"Payload of add item method"
+type AddItemPayload {
+  "The response data"
+  data: Budget
+
+  "The response error"
+  error: Error
+}
+
+"Input of delete item method"
+input DeleteItemInput {
+  "The budget id"
+  budgetId: ID
+
+  "The budget item"
+  item: BudgetItem
+}
+
+"Payload of delete item method"
+type DeleteItemPayload {
+  "The response data"
+  data: Budget
+
+  "The response error"
+  error: Error
+}
+
+"Input of delete budget method"
+input DeleteBudgetInput {
+  "The budget id"
+  id: ID
+}
+
+"Payload of delete budget method"
+type DeleteBudgetPayload {
+  "The response data"
+  data: Budget
+
+  "The response error"
+  error: Error
+}
+
+type Query {
+  "Get a budget by ID"
+  getBudget(id: ID!): GetBudgetPayload!
+}
+
+type Mutation {
+  "Create a new budget"
+  createBudget(input: CreateBudgetInput!): CreateBudgetPayload!
+
+  "Add a item to the budget"
+  addItem(input: AddItemInput!): AddItemPayload!
+
+  "Delete a item from the budget"
+  deleteItem(input: DeleteItemInput!): DeleteItemPayload!
+
+  "Delete a budget"
+  deleteBudget(input: DeleteBudgetInput!): DeleteBudgetPayload!
+}
