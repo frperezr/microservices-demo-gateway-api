@@ -9,7 +9,7 @@ const schema = require('./graphql')
 const api = require('./api')
 const app = express()
 
-const port = process.env.GATEWAY_PORT || 4000
+const port = process.env.PORT || 4000
 
 app.use(morgan(':method :url :status :response-time ms'))
 app.use(bodyParser.urlencoded({ extended: true }))

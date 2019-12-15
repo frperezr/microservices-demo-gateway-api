@@ -73,13 +73,24 @@ type CreateBudgetPayload {
   error: Error
 }
 
+input BudgetItemInput {
+  "The item city"
+  city: String
+
+  "The item traveling cost"
+  travelingCost: Int
+
+  "The item staying cost"
+  stayingCost: Int
+}
+
 "Input of add item method"
 input AddItemInput {
   "The budget id"
   budgetId: ID
 
   "The budget item"
-  item: BudgetItem
+  item: BudgetItemInput
 }
 
 "Payload of add item method"
@@ -97,7 +108,7 @@ input DeleteItemInput {
   budgetId: ID
 
   "The budget item"
-  item: BudgetItem
+  item: BudgetItemInput
 }
 
 "Payload of delete item method"
@@ -117,7 +128,7 @@ input DeleteBudgetInput {
 
 "Payload of delete budget method"
 type DeleteBudgetPayload {
-  "The response data"
+  "The response data 2"
   data: Budget
 
   "The response error"
