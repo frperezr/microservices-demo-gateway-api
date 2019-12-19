@@ -9,6 +9,9 @@ type Continent {
   "The continent name"
   name: String
 
+  "The continent image url"
+  imageUrl: String
+
   "Date time when the continent was created"
   createdAt: String
 
