@@ -1,0 +1,148 @@
+"Represents the continent model"
+type Continent {
+  "The continent ID"
+  id: ID
+
+  "The continent code"
+  code: String
+
+  "The continent name"
+  name: String
+
+  "The continent image url"
+  imageUrl: String
+
+  "Date time when the continent was created"
+  createdAt: String
+
+  "Date time when the continent was last updated"
+  updatedAt: String
+}
+
+"Represents the country model"
+type Country {
+  "The country ID"
+  id: ID
+
+  "The country code"
+  continentCode: String
+
+  "The country code"
+  code: String
+
+  "The country name"
+  name: String
+
+  "Date time when the country was created"
+  createdAt: String
+
+  "Date time when the country was last updated"
+  updatedAt: String
+}
+
+"Represents the city model"
+type City {
+  "The city ID"
+  id: ID
+
+  "The city stay price"
+  stayPrice: Int
+
+  "The city travel price"
+  travelPrice: Int
+
+  "The city country"
+  country: String
+
+  "The city name"
+  name: String
+
+  "Date time when the city was created"
+  createdAt: String
+
+  "Date time when the country was last updated"
+  updatedAt: String
+}
+
+"Represents the error model"
+type Error {
+  "The error code"
+  code: Int
+
+  "The error message"
+  message: String
+}
+
+"Payload of get city method"
+type GetCityPayload {
+  "The response data"
+  data: City
+
+  "The response error"
+  error: Error
+}
+
+"Payload of list cities method"
+type ListCitiesPayload {
+  "The response data"
+  data: [City]
+
+  "The response error"
+  error: Error
+}
+
+"Payload of get country method"
+type GetCountryPayload {
+  "The response data"
+  data: Country
+
+  "The response error"
+  error: Error
+}
+
+"Payload of list countries method"
+type ListCountriesPayload {
+  "The response data"
+  data: [Country]
+
+  "The response error"
+  error: Error
+}
+
+"Payload of get continent method"
+type GetContinentPayload {
+  "The response data"
+  data: Continent
+
+  "The response error"
+  error: Error
+}
+
+"Payload of list continents method"
+type ListContinentsPayload {
+  "The response data"
+  data: [Continent]
+
+  "The response error"
+  error: Error
+}
+
+extend type Query {
+  "Get a city a ID"
+  getCity(id: ID!): GetCityPayload!
+
+  "Get all cities of a country"
+  listCities(country: String): ListCitiesPayload!
+
+  "Get country by id"
+  getCountry(id: ID!): GetCountryPayload!
+
+  "Get all countries of a continent"
+  listCountries(continent: String!): ListCountriesPayload!
+
+  "Get a continent by id"
+  getContinent(id: ID!): GetContinentPayload!
+
+  "Get all continents"
+  listContinents: ListContinentsPayload!
+}
