@@ -36,9 +36,9 @@ class AuthService {
     })
   }
 
-  signup(email, password) {
+  signup(data) {
     return new Promise((resolve, reject) => {
-      this.client.signup({ email, password }, (err, data) => {
+      this.client.signup({ data }, (err, data) => {
         err ? reject(err) : resolve(data)
       })
     })

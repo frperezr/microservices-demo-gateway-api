@@ -15,7 +15,7 @@ routes.post('/login', (req, res) => {
   }
 
   // initialize auth service
-  const auth = new AuthService()
+  const auth = AuthService
 
   //generate token with grpc auth service
   auth
@@ -25,22 +25,18 @@ routes.post('/login', (req, res) => {
 })
 
 routes.post('/signup', (req, res) => {
-  const { email, password } = req.body
+  const { data } = req.body
 
-  if (email === undefined) {
-    return res.status(400).json({ error: 'email body param not found' })
-  }
-
-  if (password === undefined) {
-    return res.status(400).json({ error: 'password body param not found' })
+  if (data === undefined) {
+    return res.status(400).json({ error: 'data body param not found' })
   }
 
   // initialize auth service
-  const auth = new AuthService()
+  const auth = AuthService
 
   //generate token with grpc auth service
   auth
-    .signup(email, password)
+    .signup(data)
     .then((data) => res.json(data))
     .catch((err) => res.status(500).json({ error: err.message }))
 })

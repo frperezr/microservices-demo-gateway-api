@@ -3,7 +3,7 @@ const BugetsService = require('../../../../services/js/budgets-api')
 
 const addItem = async (_, { input }) => {
   const { budgetId, item } = input
-  console.log(`[Budget][addItem][Request] id = ${JSON.stringify(id)}`)
+  console.log(`[Budget][addItem][Request] id = ${JSON.stringify(budgetId)}`)
   try {
     const payload = await BugetsService.addItem(budgetId, item)
     console.log(`[Budget][addItem][Response] payload = ${JSON.stringify(payload)}`)

@@ -74,6 +74,9 @@ type CreateBudgetPayload {
 }
 
 input BudgetItemInput {
+  "The city id"
+  id: ID
+
   "The item city"
   city: String
 
