@@ -1,4 +1,4 @@
-SVC=frperezr/noken-gateway-api
+SVC=frperezr/microservices-demo-gateway-api
 VERSION := $$(cat package.json | grep version | sed 's/"/ /g' | awk {'print $$3'})
 
 build b:
